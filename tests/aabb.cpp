@@ -70,11 +70,11 @@ BOOST_AUTO_TEST_CASE(unitbox)
 BOOST_AUTO_TEST_CASE(isInFront)
 {
     const vmml::AABBf unitBox = vmml::AABBf::makeUnitBox();
-    BOOST_CHECK(unitBox.isInFront({1, 0, 0, -1.0}));
-    BOOST_CHECK(unitBox.isInFront({1, 0, 0, -1.1}));
-    BOOST_CHECK(!unitBox.isInFront({1, 0, 0, -0.9}));
+    BOOST_CHECK(unitBox.isInFront({1.f, 0.f, 0.f, -1.0f}));
+    BOOST_CHECK(unitBox.isInFront({1.f, 0.f, 0.f, -1.1f}));
+    BOOST_CHECK(!unitBox.isInFront({1.f, 0.f, 0.f, -0.9f}));
 
-    BOOST_CHECK(unitBox.isInFront({-1, 0, 0, 0.0}));
-    BOOST_CHECK(unitBox.isInFront({-1, 0, 0, -0.1}));
-    BOOST_CHECK(!unitBox.isInFront({-1, 0, 0, 0.1}));
+    BOOST_CHECK(unitBox.isInFront({-1.f, 0.f, 0.f, 0.0f}));
+    BOOST_CHECK(unitBox.isInFront({-1.f, 0.f, 0.f, -0.1f}));
+    BOOST_CHECK(!unitBox.isInFront({-1.f, 0.f, 0.f, 0.1f}));
 }

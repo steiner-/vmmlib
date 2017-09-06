@@ -36,6 +36,19 @@
 #include <cstring>           // memcmp
 #include <vmmlib/matrix.hpp> // used inline
 
+#if defined(_MSC_VER)
+ //can otherwise cause problems with, e.g., M_PI under Windows.
+#define _USE_MATH_DEFINES
+#include <cmath>
+#ifndef M_PI
+#include <corecrt_math_defines.h>
+#endif
+#else
+#ifndef M_PI
+#define M_PI 3.1415926535897932
+#endif
+#endif
+
 namespace vmml
 {
 /** Represents a frustum, following OpenGL conventions. */
